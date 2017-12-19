@@ -1,7 +1,7 @@
 #!/bin/bash
-#tomcat home 
+
 base=/docker/javatomcat/apache-tomcat-8.0.47
-#action 为start|status|stop|restart
+
 action=$1
 
 function usage(){
@@ -13,14 +13,15 @@ function start(){
 }
 
 function getpid(){
-pid=`ps -ef | grep ${base} | grep -v "grep" |awk '{print $2}'`
-return ${pid}
+	pid=`ps -ef | grep ${base} | grep -v "grep" |awk '{print $2}'`
+	#如果使用return返回  返回值不能大于255
+	echo ${pid}
 }
 
 function status(){
 	pid=`getpid`
-#	echo "pid: ${pid}"
-	if [ ! -n  $pid ];then
+	#echo "pid: ${pid}"
+	if [ -z $pid ];then
 		echo "tomcat is stop"
 	else
 		echo "tomcat is running"
