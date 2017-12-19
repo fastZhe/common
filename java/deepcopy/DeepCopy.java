@@ -1,4 +1,3 @@
-package com.yoyo.bean;
 
 import java.io.*;
 //该类主要用于类对象的深拷贝
