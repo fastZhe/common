@@ -1,7 +1,7 @@
 #!/bin/bash
-
+#tomcat home 
 base=/docker/javatomcat/apache-tomcat-8.0.47
-
+#action 为start|status|stop|restart
 action=$1
 
 function usage(){
